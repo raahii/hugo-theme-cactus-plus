@@ -10,7 +10,14 @@
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
     {{ .Hugo.Generator }}
-    <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <title>
+      {{ if .IsHome }}
+        {{ .Title }}
+      {{ else if eq .URL "/about/"}}
+        about | {{ .Site.Title }}
+      {{ else }}
+        {{ .Title }} | {{ .Site.Title }}
+      {{ end }}</title>
     <link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/highlight.css">
