@@ -39,13 +39,16 @@
                 {{ partial "share.html" . }}
             {{ end }}
 
-            {{ if .Site.Params.enableDisqus }}
-                {{ partial "disqus.html" . }}
-            {{ end }}
+            <hr></hr>
 
             {{ if .Site.Params.showLatestPosts }}
                 {{ partial "latest-posts.html" . }}
             {{ end }}
+
+            {{ if .Site.Params.enableDisqus }}
+                {{ partial "disqus.html" . }}
+            {{ end }}
+
 
             {{ partial "footer.html" . }}
         </section>
